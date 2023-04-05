@@ -1,3 +1,4 @@
+open Euler
 open Euler.Util
 
 let chall_1 =
@@ -38,4 +39,6 @@ let chall_4 =
   in
   solve 999 999 0
 
-let () = chall_2 |> string_of_int |> print_endline
+let chall_5 = Math.lcm (List.range 1 21)
+
+let () = chall_5 |> string_of_int |> print_endline
