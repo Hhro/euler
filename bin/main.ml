@@ -41,4 +41,13 @@ let chall_4 =
 
 let chall_5 = Math.lcm (List.range 1 21)
 
-let () = chall_5 |> string_of_int |> print_endline
+let chall_6 = 100 * 101 * 302 * 99 / 12
+
+let chall_7 =
+  let rec solve cnt n =
+    if cnt = 10001 then n - 2
+    else n + 2 |> if Math.is_prime n then solve (cnt + 1) else solve cnt
+  in
+  solve 1 3
+
+let () = chall_7 |> string_of_int |> print_endline

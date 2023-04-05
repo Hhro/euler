@@ -10,5 +10,7 @@ end
 module List = struct
   include List
 
+  let repeat e n = List.init n (fun _ -> e)
+
   let range l u = List.init (u - l) (fun i -> l + i)
 end
