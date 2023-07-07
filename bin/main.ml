@@ -118,10 +118,14 @@ let chall_11 =
     let rec calc_muls muls x y n =
       if n = 4 then muls
       else
-        calc_muls [List.nth muls 0 * get (x+n) y; List.nth muls 1 * get x (y+n); List.nth muls 2 * get (x+n) (y+n); List.nth muls 3 * get (x+n) (y-n)] x y (n+1)
+        calc_muls [
+          List.nth muls 0 * get (x+n) y;
+          List.nth muls 1 * get x (y+n);
+          List.nth muls 2 * get (x+n) (y+n);
+          List.nth muls 3 * get (x+n) (y-n)] x y (n+1)
     in
     if x = 0 && y = 20 then acc
-    else 
+    else
       let muls = calc_muls [1;1;1;1] x y 0 in
       let acc = max acc (List.fold_left max min_int muls) in
       if x = 19 then solve acc 0 (y+1)
@@ -129,4 +133,4 @@ let chall_11 =
   in
   solve 0 0 0
 
-let () = chall_11 |> string_of_int |> print_endline
+let () = chall_10 |> string_of_int |> print_endline
