@@ -339,9 +339,11 @@ let chall_14 () =
   solve (0, 0) collatz_tbl 1
 ;;
 
+let chall_15 () = Math.choose 40 20
+
 let () =
   let t = Sys.time () in
-  let answer = chall_14 () in
+  let answer = chall_15 () in
   Format.printf "elapsed: %f" (Sys.time () -. t);
   answer |> string_of_int |> print_endline
 ;;

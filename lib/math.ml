@@ -67,3 +67,43 @@ let num_of_divisors n =
     let sqrt = Float.sqrt (y |> float_of_int) |> int_of_float in
     if y = sqrt * sqrt && is_prime sqrt then nd * 3 else nd * 4)
 ;;
+
+let triangle n = n * (n - 1) / 2
+let rec fact n = if n = 1 || n = 0 then 1 else n * fact (n - 1)
+let rec perm n r = if r = 0 then 1 else n * perm (n - 1) (r - 1)
+
+let comb n r =
+  let tbl = Hashtbl.create (triangle (n / 2) * 2) in
+  let rec aux n r =
+    let find_or_add n i =
+      match Hashtbl.find_opt tbl (n, i) with
+      | Some v -> v
+      | None ->
+        let v = aux n i in
+        Hashtbl.add tbl (n, i) v;
+        v
+    in
+    if r > n
+    then 0
+    else if r = 0
+    then 1
+    else if n <= 28 && r <= n / 2
+    then perm n r / fact r
+    else if n <= 28 && r > n / 2
+    then perm n (n - r) / fact (n - r)
+    else (
+      let a_i, b_i =
+        if r - 1 > (n - 1) / 2
+        then n - r - 1, n - r
+        else if r > (n - 1) / 2
+        then n - r - 1, r - 1
+        else r, r - 1
+      in
+      let a = find_or_add (n - 1) a_i in
+      let b = find_or_add (n - 1) b_i in
+      a + b)
+  in
+  aux n r
+;;
+
+let choose = comb
