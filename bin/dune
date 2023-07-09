@@ -1,4 +1,4 @@
 (executable
  (public_name euler)
  (name main)
- (libraries euler))
+ (libraries zarith euler))
