@@ -69,7 +69,7 @@ let num_of_divisors n =
 ;;
 
 let triangle n = n * (n - 1) / 2
-let rec fact n = if n = 1 || n = 0 then 1 else n * fact (n - 1)
+let rec fact n = if n = 0 then 1 else n * fact (n - 1)
 let rec perm n r = if r = 0 then 1 else n * perm (n - 1) (r - 1)
 
 let comb n r =
