@@ -1,6 +1,5 @@
 let rec gcd a b = if b = 0 then a else gcd b (a mod b)
 let lcm ns = ns |> List.fold_left (fun res n -> res * n / gcd res n) 1
-let sum ns = ns |> List.fold_left (fun res n -> res + n) 0
 
 let pow b e =
   let rec aux res i = if i = e then res else aux (res * b) (i + 1) in

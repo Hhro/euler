@@ -15,3 +15,10 @@ module List = struct
 end
 
 module IntMap = Map.Make (Int)
+
+module IntList = struct
+  type t = int list
+
+  let sum = List.fold_left (fun acc n -> acc + n) 0
+  let max = List.fold_left (fun res n -> max res n) Int.min_int
+end
