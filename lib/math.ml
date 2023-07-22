@@ -43,6 +43,8 @@ let is_prime n =
   else failwith "miller: not support number not in 32-bit int range"
 ;;
 
+let divisors n = ignore
+
 let num_of_divisors n =
   let cbrt = Float.cbrt (n |> float_of_int) |> int_of_float in
   let rec cnt acc div d =

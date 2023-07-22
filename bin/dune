@@ -1,4 +1,4 @@
 (executable
  (public_name euler)
  (name main)
- (libraries zarith euler))
+ (libraries lib iter prob))

@@ -1,0 +1,3 @@
+(library
+ (name prob)
+ (libraries zarith iter lib))
